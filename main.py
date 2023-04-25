@@ -5,7 +5,9 @@ app=Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    course=['C','C++','Java','Python','Reactjs','Angularjs','Vuejs','Php','Nodejs']
+    is_Auth=False
+    return render_template('index.html',courses=course,is_Auth=is_Auth)
 
 @app.route('/about')
 def about():
@@ -18,7 +20,9 @@ def contact():
 #Dynamic Routing
 @app.route('/users/<name>')
 def users(name):
-    return "<h3>Welcome To {}</h3>".format(name)
+    cars=["BMW","Hyundai","Ford"]
+    profile={"son":"sathish","age":26,"City":"Coimbatore"}
+    return render_template('users.html',user_name=name,car=cars,profiles=profile)
 
 if __name__=='__main__':
     app.run(debug=True)
